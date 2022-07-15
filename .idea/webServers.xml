@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="7d66dc0e-0b5d-4353-bfb5-73e3c4e75cde" name="niai">
+        <fileTransfer rootFolder="/home/niai/hg" accessType="SFTP" host="166.104.35.40" port="22" sshConfigId="84214398-88d1-431f-83d2-74c4d35ce33b" sshConfig="niai@166.104.35.40:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="65ef3da0-7cb1-470e-afe8-10e46610f6c2" name="hg">
+        <fileTransfer rootFolder="/home/hg/HG" accessType="SFTP" host="166.104.35.39" port="22" sshConfigId="2d45c3fa-8e66-4f75-bdd3-b50d28eecf0e" sshConfig="hg@166.104.35.39:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,69 @@
+---
+dataset:
+  data_path: data_temp/multitask_meta/meta_group_2
+  loader_name: multitask_data
+  name: dataset
+  node_only: false
+  num_node: 100
+  scale_path: data_temp/multitask/test
+  split: test
+  test_path: data_temp/multitask
+exp_dir: GNN_exp/Multitask/multi_level/pna_meta/PNAGnn_meta_001_06-12-40_meta_group_2_hidden_16_num_prop_2_not_concat_b_lr_0.003_batch__128_2module_meta_copy_1_R
+exp_name: PNAGnn_meta_001_06-12-40_meta_group_2_hidden_16_num_prop_2_not_concat_b_lr_0.003_batch__128_2module_meta_copy_1_R
+gpus:
+- 0
+model:
+  LDPC: false
+  SSL: false
+  aggregate_type: att
+  degree_emb: false
+  drop_prob: 0.0
+  graph_only: false
+  hidden_dim: 16
+  include_b: false
+  interpol: false
+  jumping: false
+  loss: mse
+  masking: false
+  masking_number: []
+  master_node: false
+  name: PNAGnn_meta
+  node_only: false
+  num_module: 2
+  num_prop: 2
+  skip_connection: false
+  temp: true
+  train_pretext: false
+run_id: '60902'
+runner: MultitaskRunner
+save_dir: GNN_exp/Multitask/multi_level/pna_meta/PNAGnn_meta_001_06-12-40_meta_group_2_hidden_16_num_prop_2_not_concat_b_lr_0.003_batch__128_2module_meta_copy_1_R
+seed: 1234
+test:
+  batch_size: 256
+  ch_node: true
+  num_module: 2
+  num_workers: 0
+  optim_step: 1000
+  random_init: true
+  test_model: GNN_exp/Multitask/multi_level/pna_meta/PNAGnn_meta_001_06-12-40_meta_group_2_hidden_16_num_prop_2_not_concat_b_lr_0.003_batch__128_2module_meta_copy_1_R/model_snapshot_best.pth
+train:
+  batch_size: 128
+  ch_node: true
+  display_iter: 1
+  init_temp: 0.0001
+  is_resume: false
+  lr: 0.003
+  lr_decay: 0.1
+  lr_decay_steps: 20
+  max_epoch: 1000
+  meta_copy: 1
+  momentum: 0.9
+  num_workers: 0
+  optimizer: Adam
+  random_init: true
+  resume_model: None
+  shuffle: false
+  snapshot_epoch: 20000
+  valid_epoch: 1
+  wd: 1.0e-06
+use_gpu: true

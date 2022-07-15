@@ -1,0 +1,66 @@
+---
+dataset:
+  data_path: data_temp/multitask_meta/meta_group_4
+  test_path: data_temp/multitask
+  scale_path: data_temp/multitask/test
+  loader_name: multitask_data
+  name : dataset
+  num_node: 100
+  split: train
+exp_dir: GNN_exp/Multitask/multi_level/module_2_v3_max/
+exp_name: TorchGNN
+gpus:
+- 0
+model:
+  temp : true
+  aggregate_type : att_max
+  degree_emb: false
+  drop_prob: 0.0
+  hidden_dim: 16
+  include_b: true
+  loss: mse
+  name: MetaGnn
+  node_only: false
+  graph_only: false
+  num_prop: 2
+  jumping : false
+  skip_connection : false
+  interpol : false
+  master_node : false
+  masking : false
+  masking_number : []
+  SSL : false
+  train_pretext : false
+  num_module : 2
+runner: MultitaskRunner
+seed: 1234
+test:
+  optim_step: 1000
+  batch_size: 128
+  num_workers: 0
+  one_module: false
+  test_model: ../GNN_exp/
+  random_init : true
+  num_module: 2
+  ch_node: true
+train:
+  batch_size: 128
+  meta_copy: 1
+  display_iter: 13000
+  is_resume: false
+  lr: 0.003
+  lr_decay: 0.1
+  lr_decay_steps: 20
+  max_epoch: 1000
+  momentum: 0.9
+  num_workers: 0
+  optimizer: Adam
+  resume_model: None
+  shuffle: false
+  snapshot_epoch: 20000
+  valid_epoch: 1
+  wd: 0.000001
+  init_temp: 0.0001
+  random_init: true
+  ch_node: true
+use_gpu: true

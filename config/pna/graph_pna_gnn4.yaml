@@ -1,0 +1,66 @@
+---
+dataset:
+  data_path: data_temp/multitask/meta_group_4
+  test_path: data_temp/multitask
+  loader_name: multitask_data
+  scale_path: data_temp/multitask/test
+  name : dataset
+  num_node: 100
+  node_only: false
+  split: train
+exp_dir: GNN_exp/Multitask/graph_level/pna/
+exp_name: TorchGNN
+gpus:
+- 0
+model:
+  temp : true
+  LDPC: false
+  aggregate_type : att
+  degree_emb: false
+  drop_prob: 0.1
+  hidden_dim: 16
+  loss: mse
+  name: PNAGnn
+  num_prop: 2
+  node_only: false
+  graph_only: true
+  jumping : false
+  skip_connection : false
+  interpol : false
+  master_node : false
+  masking : false
+  masking_number : []
+  SSL : false
+  train_pretext : false
+  num_module : 1
+runner: NeuralInferenceRunner
+seed: 1234
+test:
+  optim_step: 1
+  batch_size: 1
+  num_workers: 0
+  test_model: ../GNN_exp/
+  random_init : false
+  num_module: 1
+  ch_node: true
+train:
+  batch_size: 128
+  meta_copy: 1
+  display_iter: 1
+  is_resume: false
+  lr: 0.003
+  lr_decay: 0.1
+  lr_decay_steps: 20
+  max_epoch: 1000
+  momentum: 0.9
+  num_workers: 0
+  optimizer: Adam
+  resume_model: None
+  shuffle: false
+  snapshot_epoch: 20000
+  valid_epoch: 1
+  wd: 0.000001
+  init_temp: 0.0001
+  random_init: false
+  ch_node: true
+use_gpu: true

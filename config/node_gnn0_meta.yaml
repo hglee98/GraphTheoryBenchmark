@@ -1,0 +1,61 @@
+---
+dataset:
+  data_path: data_temp/exp2_train_100_0.3_meta/meta_group_2_4
+  loader_name: Torchloader
+  name : TorchGeoLoader
+  num_node: 100
+  split: train
+exp_dir: GNN_exp/Multitask/
+exp_name: TorchGNN
+gpus:
+- 0
+model:
+  temp : true
+  LDPC: false
+  aggregate_type : att
+  degree_emb: false
+  drop_prob: 0.1
+  hidden_dim: 64
+  loss: KL-pq
+  name: TorchGNN_meta
+  num_prop: 10
+  jumping : false
+  skip_connection : false
+  interpol : false
+  master_node : false
+  masking : false
+  masking_number : []
+  SSL : false
+  train_pretext : false
+  num_module : 3
+runner: MultitaskRunner
+seed: 1234
+test:
+  optim_step: 1
+  batch_size: 1
+  num_workers: 0
+  test_model: ../GNN_exp/
+  random_init : false
+  num_module: 1
+  ch_node: true
+train:
+  batch_size: 20
+  meta_copy: 3
+  display_iter: 13000
+  is_resume: false
+  lr: 0.001
+  lr_decay: 0.1
+  lr_decay_steps: 10000
+  max_epoch: 1
+  momentum: 0.9
+  num_workers: 0
+  optimizer: Adam
+  resume_model: None
+  shuffle: false
+  snapshot_epoch: 20000
+  valid_epoch: 1
+  wd: 0.0
+  init_temp: 0.0001
+  random_init: false
+  ch_node: true
+use_gpu: true

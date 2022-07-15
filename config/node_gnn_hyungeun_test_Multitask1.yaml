@@ -1,0 +1,67 @@
+---
+dataset:
+  data_path: data_temp/multitask/meta_group_2
+  loader_name: multitask_data
+  name: dataset
+  num_node: 100
+  scale_path: data_temp/multitask/test
+  split: test
+  test_path: data_temp/multitask
+exp_dir: GNN_exp/Multitask/MetaGnn_001_31-12-35_meta_group_2_hidden_16_batch__256_lr__0.003______2_MOD_RANDOM
+exp_name: MetaGnn_001_31-12-35_meta_group_2_hidden_16_batch__256_lr__0.003______2_MOD_RANDOM
+gpus:
+- 0
+model:
+  SSL: false
+  aggregate_type: att
+  degree_emb: false
+  drop_prob: 0.1
+  hidden_dim: 16
+  interpol: false
+  jumping: false
+  loss: mse
+  masking: false
+  masking_number: []
+  master_node: false
+  name: MetaGnn
+  node_only: false
+  num_module: 3
+  num_prop: 2
+  skip_connection: false
+  temp: true
+  train_pretext: false
+run_id: '2577'
+runner: MultitaskRunner
+save_dir: GNN_exp/Multitask/MetaGnn_001_31-12-35_meta_group_2_hidden_16_batch__256_lr__0.003______2_MOD_RANDOM
+seed: 1234
+test:
+  batch_size: 500
+  ch_node: true
+  num_module: 2
+  num_workers: 0
+  one_module: false
+  optim_step: 10
+  random_init: true
+  test_model: GNN_exp/Multitask/MetaGnn_001_31-12-35_meta_group_2_hidden_16_batch__256_lr__0.003______2_MOD_RANDOM/model_snapshot_best.pth
+train:
+  batch_size: 256
+  ch_node: true
+  display_iter: 13000
+  init_temp: 0.0001
+  is_resume: false
+  lr: 0.003
+  lr_decay: 0.1
+  lr_decay_steps: 20
+  max_epoch: 10
+  meta_copy: 1
+  momentum: 0.9
+  num_workers: 0
+  one_module: false
+  optimizer: Adam
+  random_init: true
+  resume_model: None
+  shuffle: false
+  snapshot_epoch: 20000
+  valid_epoch: 1
+  wd: 1.0e-06
+use_gpu: true
